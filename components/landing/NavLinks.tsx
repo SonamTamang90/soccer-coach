@@ -10,7 +10,7 @@ const NavLinks = () => {
     ["Features", "/#features"],
     ["Reviews", "#/reviews"],
     ["Pricing", "/#pricing"],
-    ["FAQS", "/#faq"],
+    ["FAQs", "/#faq"],
   ].map(([label, href], index) => (
     <Link
       key={label}
