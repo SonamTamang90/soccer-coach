@@ -83,3 +83,12 @@ body {
     padding-left: 2rem;
   }
 }
+
+@theme {
+  --animate-fade-in: fade-in 0.5s linear forwards;
+  --animate-spin-slow: spin 4s linear infinite;
+  --animate-spin-slower: spin 6s linear infinite;
+  --animate-spin-reverse: spin-reverse 1s linear infinite;
+  --animate-spin-reverse-slow: spin-reverse 4s linear infinite;
+  --animate-spin-reverse-slower: spin-reverse 6s linear infinite;
+}

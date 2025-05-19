@@ -10,7 +10,7 @@ import {
   PopoverButton,
   PopoverPanel,
 } from "@headlessui/react";
-import { ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/24/outline";
+import { ChevronUpIcon } from "@heroicons/react/24/outline";
 import React from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Button } from "../ui/Button";
@@ -60,7 +60,7 @@ const Header = () => {
                 width={36}
                 height={36}
               />
-              <span className="text-base font-medium">The Richer Way</span>
+              <span className="text-base font-medium">Soccer Coach</span>
             </Link>
             <div className="hidden lg:flex lg:gap-10">
               <NavLinks />
@@ -129,10 +129,12 @@ const Header = () => {
               )}
             </Popover>
             <div className="flex items-center gap-6 max-lg:hidden">
-              <Button href="/sign-in" variant="outline">
+              <Button className="py-2 px-6" href="/sign-in" variant="outline">
                 Sign in
               </Button>
-              <Button href="/sign-up">Get Started for Free</Button>
+              <Button className="py-2 px-3" href="/sign-up">
+                Get Started for Free
+              </Button>
             </div>
           </div>
         </Container>
