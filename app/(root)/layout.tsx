@@ -1,7 +1,13 @@
-import React from "react";
+import Header from "@/components/landing/Header";
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
-  return <main>{children}</main>;
+  return (
+    <>
+      <Header />
+      <main>{children}</main>
+      <footer>Footer</footer>
+    </>
+  );
 };
 
 export default RootLayout;

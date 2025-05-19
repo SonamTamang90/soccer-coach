@@ -9,21 +9,27 @@ import {
   BellIcon,
   ArrowLeftOnRectangleIcon,
   BriefcaseIcon,
+  ClipboardDocumentListIcon,
 } from "@heroicons/react/24/outline";
 
 const navItems = [
   { name: "Dashboard", href: "/dashboard", icon: HomeIcon },
   { name: "Profile", href: "/dashboard/profile", icon: UserIcon },
   { name: "Jobs", href: "/dashboard/jobs", icon: BriefcaseIcon },
+  {
+    name: "Projects",
+    href: "/dashboard/projects",
+    icon: ClipboardDocumentListIcon,
+    badge: {
+      text: "New",
+      color: "bg-green-500",
+    },
+  },
   { name: "Notifications", href: "/dashboard/notifications", icon: BellIcon },
   {
     name: "Settings",
     href: "/dashboard/settings",
     icon: Cog8ToothIcon,
-    badge: {
-      text: "New",
-      color: "bg-green-500",
-    },
   },
 ];
 
