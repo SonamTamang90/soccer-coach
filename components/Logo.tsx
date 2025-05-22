@@ -3,7 +3,13 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-const Logo = ({ className }: { className?: string }) => {
+const Logo = ({
+  className,
+  color = "text-gray-900",
+}: {
+  className?: string;
+  color?: string;
+}) => {
   return (
     <Link
       href="/"
@@ -11,7 +17,7 @@ const Logo = ({ className }: { className?: string }) => {
       className={clsx("flex items-center gap-2", className)}
     >
       <Image src="/assets/logo.png" alt="Brand Logo" width={36} height={36} />
-      <span className="text-lg font-medium text-gray-900">Soccer Coach</span>
+      <span className={clsx("text-lg font-medium", color)}>Soccer Coach</span>
     </Link>
   );
 };

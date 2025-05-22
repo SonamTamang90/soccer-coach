@@ -1,8 +1,6 @@
 "use client";
 
-import Link from "next/link";
 import { Container } from "../Container";
-import Image from "next/image";
 import NavLinks from "./NavLinks";
 import {
   Popover,
@@ -14,6 +12,8 @@ import { ChevronUpIcon } from "@heroicons/react/24/outline";
 import React from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Button } from "../ui/Button";
+import Logo from "../Logo";
+import Link from "next/link";
 
 const MenuIcon = (props: React.ComponentPropsWithoutRef<"svg">) => {
   return (
@@ -49,25 +49,14 @@ const Header = () => {
       <nav>
         <Container className="relative z-50 flex justify-between py-8">
           <div className="relative z-10 flex items-center gap-16">
-            <Link
-              href="/"
-              aria-label="Home"
-              className="flex items-center gap-2"
-            >
-              <Image
-                src="/assets/logo.png"
-                alt="Brand Logo"
-                width={36}
-                height={36}
-              />
-              <span className="text-base font-medium">Soccer Coach</span>
-            </Link>
-            <div className="hidden lg:flex lg:gap-10">
+            <Logo />
+            {/* TODO: Add navigation links */}
+            {/* <div className="hidden lg:flex lg:gap-10">
               <NavLinks />
-            </div>
+            </div> */}
           </div>
           <div className="flex items-center gap-6">
-            <Popover className="lg:hidden">
+            {/* <Popover className="lg:hidden">
               {({ open }) => (
                 <>
                   <PopoverButton
@@ -127,7 +116,7 @@ const Header = () => {
                   </AnimatePresence>
                 </>
               )}
-            </Popover>
+            </Popover> */}
             <div className="flex items-center gap-6 max-lg:hidden">
               <Button className="py-2 px-6" href="/sign-in" variant="outline">
                 Sign in

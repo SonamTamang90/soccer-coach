@@ -6,7 +6,7 @@ import Image from "next/image";
 const BackgroundIllustration = (
   props: React.ComponentPropsWithoutRef<"div">
 ) => {
-  let id = useId();
+  const id = useId();
   return (
     <div {...props}>
       <svg
@@ -85,12 +85,14 @@ const Hero = () => {
             <p className="mt-6 text-lg text-gray-600">
               The ultimate platform for soccer players and teams to track
               progress, manage tournaments, and build winning strategies
-              together. From individual development to team coordination, we've
-              got your game covered.
+              together. From individual development to team coordination,
+              we&apos;ve got your game covered.
             </p>
             <div className="mt-8 flex flex-wrap gap-x-6 gap-y-4">
-              <Button className="py-3 px-6">Get Started Free</Button>
-              <Button variant="outline" className="py-3 px-6">
+              <Button href="/sign-up" className="py-3 px-6">
+                Get Started Free
+              </Button>
+              <Button href="/sign-in" variant="outline" className="py-3 px-6">
                 Sign in
               </Button>
             </div>

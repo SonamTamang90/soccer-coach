@@ -66,7 +66,7 @@ export default function Header({ user, onLogout }: HeaderProps) {
                 <Image
                   className="h-8 w-8 rounded-full"
                   src={user.avatar}
-                  alt={user.name}
+                  alt={user.name || "User avatar"}
                   width={32}
                   height={32}
                 />

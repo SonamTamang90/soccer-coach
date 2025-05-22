@@ -1,5 +1,44 @@
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin-reverse {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin 4s linear infinite;
+}
+
+.animate-spin-slower {
+  animation: spin 6s linear infinite;
+}
+
+.animate-spin-reverse {
+  animation: spin-reverse 1s linear infinite;
+}
+
+.animate-spin-reverse-slow {
+  animation: spin-reverse 4s linear infinite;
+}
+
+.animate-spin-reverse-slower {
+  animation: spin-reverse 6s linear infinite;
+}
+
 /* Global variables */
 :root {
   --foreground: #171717;

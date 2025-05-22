@@ -45,8 +45,10 @@ export async function POST(req: NextRequest) {
     // Don't return password in response
     const userWithoutPassword = {
       _id: user._id,
-      name: user.name,
+      firstname: user.firstname,
+      lastname: user.lastname,
       email: user.email,
+      referralSource: user.referralSource,
     };
 
     return NextResponse.json(
