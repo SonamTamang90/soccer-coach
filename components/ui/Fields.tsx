@@ -17,10 +17,12 @@ const Label = ({ id, children }: { id: string; children: React.ReactNode }) => {
 
 export const TextField = ({
   label,
+  error,
   type = "text",
   className,
   ...props
 }: Omit<React.ComponentPropsWithoutRef<"input">, "id"> & {
+  error?: string;
   label?: string;
 }) => {
   const id = useId();
@@ -29,6 +31,7 @@ export const TextField = ({
     <div className={className}>
       {label && <Label id={id}>{label}</Label>}
       <input id={id} type={type} {...props} className={formClasses} />
+      {error && <p className="mt-2 text-sm text-red-500">{error}</p>}
     </div>
   );
 };

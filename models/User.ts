@@ -3,15 +3,18 @@ import { hashPassword } from "@/lib/auth";
 
 // Interface for User document
 export interface UserDocument extends Document {
-  name: string;
+  firstname: string;
+  lastname: string;
   email: string;
   password: string;
+  referralSource: string;
   avatar?: string;
   bio?: string;
   phone?: string;
   location?: string;
   createdAt: Date;
   updatedAt: Date;
+  fullName: string; // Virtual field
 }
 
 // Interface for User model
@@ -22,22 +25,32 @@ interface UserModel extends Model<UserDocument> {
 // Define User schema
 const UserSchema = new Schema<UserDocument>(
   {
-    name: {
+    firstname: {
       type: String,
-      required: [true, "Name is required"],
+      required: true,
+      trim: true,
+    },
+    lastname: {
+      type: String,
+      required: true,
       trim: true,
     },
     email: {
       type: String,
-      required: [true, "Email is required"],
+      required: true,
       unique: true,
       trim: true,
       lowercase: true,
     },
     password: {
       type: String,
-      required: [true, "Password is required"],
-      minlength: [6, "Password must be at least 6 characters"],
+      required: true,
+      minlength: 6,
+    },
+    referralSource: {
+      type: String,
+      required: true,
+      trim: true,
     },
     avatar: {
       type: String,
@@ -62,6 +75,8 @@ const UserSchema = new Schema<UserDocument>(
       virtuals: true,
       transform: function (doc, ret) {
         ret.id = ret._id;
+        // Add a virtual fullName field
+        ret.fullName = `${ret.firstname} ${ret.lastname}`;
         return ret;
       },
     },
@@ -69,13 +84,19 @@ const UserSchema = new Schema<UserDocument>(
   }
 );
 
+// Add virtual for full name
+UserSchema.virtual("fullName").get(function () {
+  return `${this.firstname} ${this.lastname}`;
+});
+
 // Add custom method to find user by email
 UserSchema.statics.findByEmail = function (email: string) {
   return this.findOne({ email });
 };
 
-// Hash password before saving
+// Pre-save middleware to handle name fields
 UserSchema.pre("save", async function (next) {
+  // Handle password hashing
   if (this.isModified("password")) {
     this.password = await hashPassword(this.password);
   }

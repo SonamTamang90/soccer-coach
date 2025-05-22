@@ -6,14 +6,17 @@ import { SelectField, TextField } from "@/components/ui/Fields";
 import { SignUpFormData, SignUpSchema } from "@/lib/validations";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React from "react";
 import { useForm } from "react-hook-form";
 
 const SignUp = () => {
+  const router = useRouter();
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
+    reset,
   } = useForm<SignUpFormData>({
     resolver: zodResolver(SignUpSchema),
     defaultValues: {
@@ -24,6 +27,34 @@ const SignUp = () => {
       referralsource: "",
     },
   });
+
+  const onSubmit = async (data: SignUpFormData) => {
+    try {
+      const response = await fetch("/api/auth/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        router.push("/sign-in?registered=true");
+        return { success: true, data: result.data };
+      } else {
+        return { success: false, error: result.error };
+      }
+      reset();
+    } catch (error) {
+      console.error("Form submission error:", error);
+      return {
+        success: false,
+        error: { form: "Failed to create account. Please try again." },
+      };
+    }
+  };
 
   return (
     <AuthLayout
@@ -38,42 +69,42 @@ const SignUp = () => {
         </>
       }
     >
-      <form>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <div className="grid grid-cols-2 gap-6">
           <TextField
             label="First Name"
-            name="first_name"
             type="text"
             autoComplete="given_name"
-            required
+            {...register("firstname")}
+            error={errors.firstname?.message}
           />
           <TextField
             label="Last Name"
-            name="last_name"
             type="text"
             autoComplete="family_name"
-            required
+            {...register("lastname")}
+            error={errors.lastname?.message}
           />
           <TextField
             className="col-span-full"
             label="Email address"
-            name="email"
             type="email"
             autoComplete="email"
-            required
+            {...register("email")}
+            error={errors.email?.message}
           />
           <TextField
             className="col-span-full"
             label="Password"
-            name="password"
             type="password"
             autoComplete="new-password"
-            required
+            {...register("password")}
+            error={errors.password?.message}
           />
           <SelectField
             className="col-span-full"
             label="How did you hear about us?"
-            name="referral_source"
+            {...register("referralsource")}
           >
             <option>AltaVista search</option>
             <option>Super Bowl commercial</option>
@@ -81,7 +112,12 @@ const SignUp = () => {
             <option>The “Never Use This” podcast</option>
           </SelectField>
         </div>
-        <Button type="submit" color="cyan" className="mt-8 w-full">
+        <Button
+          type="submit"
+          color="cyan"
+          className="mt-8 w-full"
+          disabled={isSubmitting}
+        >
           Get started today
         </Button>
       </form>
@@ -91,7 +127,6 @@ const SignUp = () => {
 
 export default SignUp;
 
-// "use client";
 // import React from "react";
 // import AuthForm from "@/components/forms/AuthForm";
 // import { FormData, SignUpSchema } from "@/components/validation/auth-schemas";
