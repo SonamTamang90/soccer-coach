@@ -107,6 +107,3 @@ Contributions are welcome! Please open issues and submit pull requests for new f
 [MIT](LICENSE)
 
 ---
-
-**Senior Frontend Developer Note:**  
-This project is designed for scalability, maintainability, and a seamless user experience. For production, integrate a real authentication provider and connect to a backend API for persistent data. For questions or suggestions, please open an issue or contact the maintainer.
