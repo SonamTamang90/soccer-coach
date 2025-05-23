@@ -1,36 +1,112 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ⚽ Soccer Coach
+
+A modern, full-featured web application for soccer teams, coaches, and players to manage training, track progress, and streamline team operations.
+
+---
+
+## Table of Contents
+
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Getting Started](#getting-started)
+- [Project Structure](#project-structure)
+- [Development Workflow](#development-workflow)
+- [Contributing](#contributing)
+- [License](#license)
+
+---
+
+## Features
+
+- **Role-Based Dashboards:** Distinct experiences for team managers, coaches, and players.
+- **Team Management:** Roster, player profiles, team statistics, and settings.
+- **Training Scheduler:** Create, view, and manage training sessions and programs.
+- **Player Development:** Individual training, performance tracking, skill assessment, and progress reports.
+- **Match Management:** Upcoming matches, history, statistics, and opposition analysis.
+- **Analytics:** Team and player analytics, training metrics, and custom reports.
+- **Responsive UI:** Fully mobile-friendly with a collapsible sidebar and dark mode support.
+- **Interactive Components:** Modals, charts, and dynamic navigation for a seamless user experience.
+
+---
+
+## Tech Stack
+
+- **Framework:** [Next.js](https://nextjs.org/) (App Router, SSR/CSR)
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS, dark mode support
+- **Icons:** Heroicons
+- **Charts:** Recharts
+- **State Management:** React hooks, Context API (if needed)
+- **Authentication:** Local storage mock (replace with real auth in production)
+
+---
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js (v18+ recommended)
+- npm, yarn, or pnpm
+
+### Installation
+
+```bash
+git clone https://github.com/your-username/soccer-coach.git
+cd soccer-coach
+npm install
+# or
+yarn install
+```
+
+### Running Locally
 
 ```bash
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the app.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Project Structure
 
-## Learn More
+```
+app/
+  components/         # Reusable UI components (Sidebar, Header, DashboardCard, etc.)
+  dashboard/          # Dashboard pages and sub-features
+    team/             # Team management pages
+    training/         # Training schedule and sessions
+    my-training/      # Player-specific training
+    ...               # Other feature pages
+  styles/             # Global styles (Tailwind config, etc.)
+public/               # Static assets
+```
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Development Workflow
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Branching:** Use feature branches for new features and bugfixes.
+- **Commits:** Write clear, descriptive commit messages.
+- **Code Style:** Follow the existing code style and use Prettier/ESLint for formatting.
+- **Testing:** (Add your preferred testing tools and instructions here)
+- **Pull Requests:** Submit PRs for review before merging to main.
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Contributing
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Contributions are welcome! Please open issues and submit pull requests for new features, bug fixes, or improvements.
+
+---
+
+## License
+
+[MIT](LICENSE)
+
+---
+
+**Senior Frontend Developer Note:**  
+This project is designed for scalability, maintainability, and a seamless user experience. For production, integrate a real authentication provider and connect to a backend API for persistent data. For questions or suggestions, please open an issue or contact the maintainer.

@@ -7,6 +7,7 @@ import {
   Trophy,
   Calendar,
   Bell,
+  ChartNoAxesCombined,
 } from "lucide-react";
 
 interface SidebarItem {
@@ -30,7 +31,7 @@ const sidebarLinks: SidebarLink[] = [
   },
   {
     name: "Training",
-    href: "/dashboard/exercises",
+    href: "/dashboard/training",
     icon: Dumbbell as React.ElementType,
   },
   {
@@ -40,6 +41,11 @@ const sidebarLinks: SidebarLink[] = [
   },
   {
     name: "My Results",
+    href: "/dashboard/my-results",
+    icon: ChartNoAxesCombined as React.ElementType,
+  },
+  {
+    name: "Profile",
     href: "/dashboard/profile",
     icon: User as React.ElementType,
   },
@@ -48,17 +54,17 @@ const sidebarLinks: SidebarLink[] = [
     items: [
       {
         name: "Team",
-        href: "/dashboard/exercises",
+        href: "/dashboard/team",
         icon: Users as React.ElementType,
       },
       {
         name: "Upcoming Matches",
-        href: "/dashboard/profile",
+        href: "/dashboard/upcoming-matches",
         icon: Calendar as React.ElementType,
       },
       {
         name: "Tournaments",
-        href: "/dashboard/profile",
+        href: "/dashboard/tournaments",
         icon: Trophy as React.ElementType,
       },
     ],
