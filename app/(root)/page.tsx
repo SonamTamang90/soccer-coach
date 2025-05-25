@@ -1,9 +1,5 @@
-import Hero from "@/components/landing/Hero";
+const page = () => {
+  return <div>HOME</div>;
+};
 
-export default function Home() {
-  return (
-    <>
-      <Hero />
-    </>
-  );
-}
+export default page;
