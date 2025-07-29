@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { Input } from "@/components/ui/Input";
 import { Button } from "@/components/ui/Button";
+import { Logo } from "@/components/shared/Logo";
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -84,25 +85,26 @@ const Register = () => {
         />
 
         {/* Subtle overlay for text readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-transparent"></div>
-        
+        {/* <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-transparent"></div> */}
+
         {/* Content */}
         <div className="relative z-10 p-12 text-white w-full">
           {/* Logo */}
-          <div className="flex items-center space-x-3 mb-11">
-            <div className="w-10 h-10 bg-white bg-opacity-30 rounded-xl flex items-center justify-center backdrop-blur-sm">
-              <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z" />
-                <path d="M12 6c-3.309 0-6 2.691-6 6s2.691 6 6 6 6-2.691 6-6-2.691-6-6-6zm0 10c-2.206 0-4-1.794-4-4s1.794-4 4-4 4 1.794 4 4-1.794 4-4 4z" />
-              </svg>
-            </div>
-            <span className="text-xl font-bold drop-shadow-lg">SoccerCoach</span>
+          <div className="mb-11">
+            <Logo 
+              size={56}
+              textColor="text-white"
+              textSize="text-xl"
+              textClassName="drop-shadow-lg"
+              iconClassName="w-14 h-14"
+              className="space-x-1"
+            />
           </div>
 
           {/* Main Content */}
           <div>
-            <h1 className="text-5xl font-bold leading-tight mb-8 drop-shadow-lg">
-              Manage Your Soccer Team
+            <h1 className="text-5xl font-bold leading-tight mb-5 drop-shadow-lg">
+              Build Champions, Not Just Teams.
             </h1>
             <p className="text-xl leading-relaxed max-w-lg drop-shadow-md">
               Simple, powerful tools to organize your team, track progress, and
@@ -113,11 +115,11 @@ const Register = () => {
       </div>
 
       {/* Right Side - Form Section */}
-      <div className="w-full lg:w-1/2 flex items-center justify-center px-8 py-12 bg-gray-50">
-        <div className="max-w-md w-full">
+      <div className="w-full lg:w-1/2 flex items-center justify-center px-8 py-12 bg-surface">
+        <div className="max-w-md w-full bg-surface-light p-8 rounded-2xl border border-dark shadow-2xl">
           {/* Header */}
-          <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold text-gray-900 mb-2">
+          <div className="text-left mb-8">
+            <h2 className="text-3xl font-bold text-primary-white mb-2">
               Let&apos;s get started
             </h2>
           </div>
@@ -169,7 +171,7 @@ const Register = () => {
               <div>
                 <label
                   htmlFor="role"
-                  className="block text-sm font-medium text-gray-700 mb-2"
+                  className="block text-sm font-medium text-primary-white mb-2"
                 >
                   Role
                 </label>
@@ -178,7 +180,7 @@ const Register = () => {
                   name="role"
                   value={formData.role}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3.5 border border-gray-200 rounded-xl text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-white"
+                  className="w-full px-4 py-3.5 border border-dark rounded-xl text-primary-white focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200 bg-surface"
                 >
                   <option value="coach">Coach</option>
                   <option value="manager">Manager</option>
@@ -204,14 +206,14 @@ const Register = () => {
             <div>
               <label
                 htmlFor="phone"
-                className="block text-sm font-medium text-gray-700 mb-2"
+                className="block text-sm font-medium text-primary-white mb-2"
               >
                 Phone number
               </label>
               <div className="flex">
-                <div className="flex items-center px-3 py-3.5 border border-r-0 border-gray-200 rounded-l-xl bg-gray-50">
+                <div className="flex items-center px-3 py-3.5 border border-r-0 border-dark rounded-l-xl bg-surface">
                   <span className="mr-2">🇺🇸</span>
-                  <span className="text-sm text-gray-600">+1</span>
+                  <span className="text-sm text-secondary">+1</span>
                 </div>
                 <input
                   id="phone"
@@ -220,7 +222,7 @@ const Register = () => {
                   value={formData.phone}
                   onChange={handleInputChange}
                   placeholder="478729"
-                  className="flex-1 px-4 py-3.5 border border-gray-200 rounded-r-xl text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-white"
+                  className="flex-1 px-4 py-3.5 border border-dark rounded-r-xl text-primary-white focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200 bg-surface placeholder-secondary"
                 />
               </div>
             </div>
@@ -243,7 +245,7 @@ const Register = () => {
             <Button
               type="submit"
               isLoading={isLoading}
-              className="w-full bg-blue-600 hover:bg-blue-700 text-white py-4 text-base font-semibold"
+              className="w-full bg-primary hover:bg-primary text-black py-4 text-base font-semibold"
             >
               GET STARTED →
             </Button>
@@ -251,11 +253,11 @@ const Register = () => {
 
           {/* Sign in link */}
           <div className="text-center mt-6">
-            <p className="text-sm text-gray-600">
+            <p className="text-sm text-secondary">
               Already have an account?{" "}
               <Link
                 href="/sign-in"
-                className="font-medium text-blue-600 hover:text-blue-500 transition-colors"
+                className="font-medium text-primary hover:text-primary transition-colors"
               >
                 Sign in
               </Link>

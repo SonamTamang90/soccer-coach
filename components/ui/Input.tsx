@@ -21,7 +21,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
         {label && (
           <label 
             htmlFor={props.id} 
-            className="block text-sm font-medium text-gray-700 mb-2"
+            className="block text-sm font-medium text-primary-white mb-2"
           >
             {label}
           </label>
@@ -31,9 +31,9 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
             ref={ref}
             type={inputType}
             className={clsx(
-              "w-full px-4 py-3.5 border border-gray-200 rounded-xl text-gray-900 placeholder-gray-500",
-              "focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent",
-              "transition-all duration-200 bg-white/50 backdrop-blur-sm",
+              "w-full px-4 py-3.5 border border-dark rounded-xl text-primary-white placeholder-secondary",
+              "focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent",
+              "transition-all duration-200 bg-surface backdrop-blur-sm",
               showPasswordToggle && "pr-12",
               error && "border-red-300 focus:ring-red-500",
               className
@@ -44,7 +44,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
             <button
               type="button"
               onClick={() => setShowPassword(!showPassword)}
-              className="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-400 hover:text-gray-600 transition-colors"
+              className="absolute inset-y-0 right-0 pr-3 flex items-center text-secondary hover:text-primary-white transition-colors"
             >
               {showPassword ? (
                 <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

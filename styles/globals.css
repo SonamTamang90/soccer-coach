@@ -1,1 +1,65 @@
 @import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-inter: var(--font-inter);
+    --font-urbanist: var(--font-urbanist);
+    --primary: #d7fb02;
+    --primary-foreground: #000000;
+    --background: #0a0a0a;
+    --surface: #141414;
+    --surface-light: #1f1f1f;
+    --text-primary: #ffffff;
+    --text-secondary: #a3a3a3;
+    --border: #2a2a2a;
+  }
+  
+  html {
+    font-family: var(--font-inter), system-ui, sans-serif;
+    background-color: var(--background);
+    color: var(--text-primary);
+  }
+  
+  body {
+    background-color: var(--background);
+    color: var(--text-primary);
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-urbanist), system-ui, sans-serif;
+    color: var(--text-primary);
+  }
+}
+
+@layer utilities {
+  .bg-primary {
+    background-color: var(--primary);
+  }
+  .text-primary {
+    color: var(--primary);
+  }
+  .border-primary {
+    border-color: var(--primary);
+  }
+  .hover\:bg-primary:hover {
+    background-color: var(--primary);
+  }
+  .hover\:text-primary:hover {
+    color: var(--primary);
+  }
+  .bg-surface {
+    background-color: var(--surface);
+  }
+  .bg-surface-light {
+    background-color: var(--surface-light);
+  }
+  .text-primary-white {
+    color: var(--text-primary);
+  }
+  .text-secondary {
+    color: var(--text-secondary);
+  }
+  .border-dark {
+    border-color: var(--border);
+  }
+}
