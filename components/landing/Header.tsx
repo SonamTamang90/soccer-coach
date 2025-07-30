@@ -3,18 +3,18 @@ import { Logo } from "@/components/shared/Logo";
 
 export const Header = () => {
   return (
-    <header className="w-full py-6 bg-white flex items-center justify-between px-8 border-b border-gray-100">
+    <header className="w-full py-6 bg-surface flex items-center justify-between px-8 border-b border-dark">
       <Logo />
       <nav className="flex gap-6 items-center">
         <a
           href="#features"
-          className="text-gray-800 hover:text-primary transition text-base font-medium"
+          className="text-primary-white hover:text-primary transition text-base font-medium"
         >
           Features
         </a>
         <a
           href="#pricing"
-          className="text-gray-800 hover:text-primary transition text-base font-medium"
+          className="text-primary-white hover:text-primary transition text-base font-medium"
         >
           Pricing
         </a>

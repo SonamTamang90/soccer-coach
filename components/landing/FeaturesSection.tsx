@@ -11,7 +11,7 @@ const features = [
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
-        className="text-blue-600"
+        className="text-primary"
       >
         <path
           strokeLinecap="round"
@@ -32,7 +32,7 @@ const features = [
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
-        className="text-blue-600"
+        className="text-primary"
       >
         <rect
           x="3"
@@ -57,7 +57,7 @@ const features = [
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
-        className="text-blue-600"
+        className="text-primary"
       >
         <path
           strokeLinecap="round"
@@ -79,7 +79,7 @@ const features = [
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
-        className="text-blue-600"
+        className="text-primary"
       >
         <path
           strokeLinecap="round"
@@ -96,9 +96,9 @@ const FeaturesSection = () => {
   return (
     <section
       id="features"
-      className="w-full py-16 bg-white flex flex-col items-center"
+      className="w-full py-16 bg-surface flex flex-col items-center"
     >
-      <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center text-gray-900">
+      <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center text-primary-white">
         Features
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-10 w-full max-w-4xl">
@@ -106,10 +106,10 @@ const FeaturesSection = () => {
           <div key={feature.title} className="flex items-start gap-4">
             <div className="flex-shrink-0">{feature.icon}</div>
             <div>
-              <h3 className="text-xl font-semibold mb-1 text-gray-900">
+              <h3 className="text-xl font-semibold mb-1 text-primary-white">
                 {feature.title}
               </h3>
-              <p className="text-gray-600 text-base">{feature.description}</p>
+              <p className="text-secondary text-base">{feature.description}</p>
             </div>
           </div>
         ))}

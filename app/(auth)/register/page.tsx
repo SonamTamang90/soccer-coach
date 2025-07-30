@@ -83,7 +83,6 @@ const Register = () => {
             backgroundImage: "url('/assets/hero.png')",
           }}
         />
-
         {/* Subtle overlay for text readability */}
         {/* <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-transparent"></div> */}
 
@@ -91,14 +90,7 @@ const Register = () => {
         <div className="relative z-10 p-12 text-white w-full">
           {/* Logo */}
           <div className="mb-11">
-            <Logo 
-              size={56}
-              textColor="text-white"
-              textSize="text-xl"
-              textClassName="drop-shadow-lg"
-              iconClassName="w-14 h-14"
-              className="space-x-1"
-            />
+            <Logo size={40} />
           </div>
 
           {/* Main Content */}
@@ -116,7 +108,7 @@ const Register = () => {
 
       {/* Right Side - Form Section */}
       <div className="w-full lg:w-1/2 flex items-center justify-center px-8 py-12 bg-surface">
-        <div className="max-w-md w-full bg-surface-light p-8 rounded-2xl border border-dark shadow-2xl">
+        <div>
           {/* Header */}
           <div className="text-left mb-8">
             <h2 className="text-3xl font-bold text-primary-white mb-2">
