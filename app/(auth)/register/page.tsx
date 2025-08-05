@@ -2,17 +2,21 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { Input } from "@/components/ui/Input";
 import { Button } from "@/components/ui/Button";
 import { Logo } from "@/components/shared/Logo";
 
+type UserRole = 'player' | 'coach' | 'manager' | 'admin';
+
 const Register = () => {
+  const router = useRouter();
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
     email: "",
     password: "",
-    role: "coach",
+    role: "coach" as UserRole,
     teamName: "",
     phone: "",
   });
@@ -47,8 +51,9 @@ const Register = () => {
     if (!formData.password) newErrors.password = "Password is required";
     if (formData.password.length < 8)
       newErrors.password = "Password must be at least 8 characters";
-    if (!formData.teamName.trim())
+    if ((formData.role === 'manager' || formData.role === 'coach') && !formData.teamName.trim()) {
       newErrors.teamName = "Team/Organization name is required";
+    }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (formData.email && !emailRegex.test(formData.email)) {
@@ -66,10 +71,23 @@ const Register = () => {
 
     setIsLoading(true);
 
-    // TODO: Implement actual registration logic
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+    try {
+      // Simulate API call delay
+      await new Promise(resolve => setTimeout(resolve, 1000));
 
-    setIsLoading(false);
+      // For now, just log the form data and redirect
+      console.log('Registration form data:', formData);
+      
+      // Simulate successful registration
+      router.push('/sign-in?message=Registration successful! You can now sign in.');
+    } catch (error: unknown) {
+      console.error('Registration error:', error);
+      setErrors({
+        general: error instanceof Error ? error.message : 'Registration failed. Please try again.',
+      });
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -115,6 +133,13 @@ const Register = () => {
               Let&apos;s get started
             </h2>
           </div>
+
+          {/* General Error */}
+          {errors.general && (
+            <div className="p-4 rounded-lg bg-red-500/10 border border-red-500/20">
+              <p className="text-red-400 text-sm">{errors.general}</p>
+            </div>
+          )}
 
           {/* Form */}
           <form onSubmit={handleSubmit} className="space-y-6">
@@ -174,10 +199,10 @@ const Register = () => {
                   onChange={handleInputChange}
                   className="w-full px-4 py-3.5 border border-dark rounded-xl text-primary-white focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200 bg-surface"
                 >
+                  <option value="player">Player</option>
                   <option value="coach">Coach</option>
                   <option value="manager">Manager</option>
                   <option value="admin">Administrator</option>
-                  <option value="parent">Parent</option>
                 </select>
               </div>
 
@@ -185,8 +210,8 @@ const Register = () => {
                 id="teamName"
                 name="teamName"
                 type="text"
-                label="Team name"
-                required
+                label={formData.role === 'player' ? "Team name (Optional)" : "Team name"}
+                required={formData.role === 'manager' || formData.role === 'coach'}
                 value={formData.teamName}
                 onChange={handleInputChange}
                 placeholder="Eagles FC"
